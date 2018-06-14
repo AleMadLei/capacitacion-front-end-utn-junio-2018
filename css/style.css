@@ -1,0 +1,46 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+strong {
+  color: #c69500;
+}
+code.alemadlei-code {
+  background: gray;
+  display: block;
+  font-size: 0.85em;
+  padding: 10px;
+}
+
+code.alemadlei-code-inline {
+  background: gray;
+  display: inline-block;
+  font-size: 0.85em;
+  padding: 5px;
+}
+
+a[rel="nofollow"]:hover {
+  color: #6f42c1;
+}
+h2.thanks {
+  color: #007bff;
+}
+
+.smaller-text {
+  font-size: 30px!important;
+}
+
+.footnote {
+  font-size: 25px!important;
+}
+
+.clearfix::after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
