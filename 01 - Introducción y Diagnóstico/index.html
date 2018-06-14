@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Capacitación de Desarrollo Front End para la UTN | Alejandro Madrigal Leiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/paper.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.min.css" />
+  <style>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    strong {
+      color: #c69500;
+    }
+    code.alemadlei-code {
+      background: gray;
+      display: block;
+      font-size: 0.85em;
+      padding: 10px;
+    }
+    a[rel="nofollow"]:hover {
+      color: #6f42c1;
+    }
+    h2.thanks {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Capacitación de Desarrollo Front End para la UTN</h1>
+        <h2 class="fragment">Introducción y Diagnóstico</h2>
+        <p class="fragment"><a href="mailto:me@alemadlei.tech" target="_blank">Alejandro Madrigal Leiva</a></p>
+      </section>
+      <section>
+        <h2>Mantras</h2>
+        <section>
+          <blockquote><h3>No existe una única forma "buena" de hacer las cosas. Hay formas que son más optimas dependiendo de las circunstancias.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>Identar el código.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>Usar los términos adecuados.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>Probar en todos los navegadores.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>En la medida de lo posible, separar contenido de presentación y de comportamiento.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>La práctica constante es importante.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>Al usar frameworks hay que aprender a "soltar el control".</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>A la hora de maquetar, pensar en estructura de soporte y luego se construye de lo más pequeño a lo más grande.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>El cambio es constante, el aprendizaje también.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>El inglés es importante. La documentación inicialmente esta en inglés y de ahí se traduce.</h3></blockquote>
+        </section>
+        <section>
+          <blockquote><h3>Si estamos pegados sin un objetivo claro con algo por más de una hora, tal vez lo ideal sea despejar la mente y abordar el problema desde otro punto de vista.</h3></blockquote>
+        </section>
+      </section>
+      <section>
+        <h2>A la hora de preguntar</h2>
+        <section>
+          <h3>Preguntas hacia uno mismo antes de preguntar a alguien?</h3>
+          <ul>
+            <li class="fragment">Qué estaba intentando hacer?</li>
+            <li class="fragment">Cómo estaba intentando hacerlo?</li>
+            <li class="fragment">Qué cosas encontré parecidas?</li>
+            <li class="fragment">Por qué creo que no funciona lo que estaba haciendo?</li>
+            <li class="fragment">Qué podría intentar?</li>
+            <li class="fragment"><a href="http://www.catb.org/esr/faqs/smart-questions.html" target="_blank" rel="nofollow">How to ask questions the smart way?</a></li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>Repaso HTML</h2>
+        <section>
+          <h3><strong>H</strong>ypertext <strong>M</strong>arkup <strong>L</strong>anguage</h3>
+          <p class="fragment">Contenido estructurado (artículos)</p>
+        </section>
+        <section>
+          <h3>Etiquetas mínimas para document válido.</h3>
+          <ul>
+            <li class="fragment">
+              <ul>
+                <li class="fragment">&lt;!DOCTYPE html&gt;</li>
+                <li class="fragment">&lt;html&gt;</li>
+                <li class="fragment">&lt;head&gt;</li>
+                <li class="fragment">&lt;body&gt;</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Etiquetas comunes</h3>
+          <ul>
+            <li class="fragment">&lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;,&lt;h4&gt;,&lt;h5&gt;,&lt;h6&gt;</li>
+            <li class="fragment">&lt;div&gt;</li>
+            <li class="fragment">&lt;p&gt;</li>
+            <li class="fragment">&lt;a&gt;</li>
+            <li class="fragment">&lt;img&gt;</li>
+            <li class="fragment">&lt;span&gt;</li>
+            <li class="fragment">&lt;ol&gt;</li>
+            <li class="fragment">&lt;ul&gt;</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Etiquetas comunes</h3>
+          <ul>
+            <li class="fragment">&lt;em&gt;</li>
+            <li class="fragment">&lt;strong&gt;</li>
+            <li class="fragment">&lt;script&gt;</li>
+            <li class="fragment">&lt;style&gt;</li>
+            <li class="fragment">&lt;meta&gt;</li>
+            <li class="fragment">&lt;link&gt;</li>
+            <li class="fragment">&lt;title&gt;</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Etiquetas comunes</h3>
+          <ul>
+            <li class="fragment">&lt;table&gt;</li>
+            <li class="fragment">&lt;thead&gt;</li>
+            <li class="fragment">&lt;tbody&gt;</li>
+            <li class="fragment">&lt;tfoot&gt;</li>
+            <li class="fragment">&lt;tr&gt;</li>
+            <li class="fragment">&lt;th&gt;</li>
+            <li class="fragment">&lt;td&gt;</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Etiquetas comunes (HTML5)</h3>
+          <ul>
+            <li class="fragment">&lt;header&gt;</li>
+            <li class="fragment">&lt;footer&gt;</li>
+            <li class="fragment">&lt;main&gt;</li>
+            <li class="fragment">&lt;side&gt;</li>
+            <li class="fragment">&lt;nav&gt;</li>
+            <li class="fragment">&lt;section&gt;</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Otros detalles</h3>
+          <p class="fragment">Las etiquetas tienen atributos</p>
+          <p class="fragment">Idealmente se <a href="https://validator.w3.org/" target="_blank" rel="nofollow">valida.</a></p>
+        </section>
+      </section>
+      <section>
+        <h2>Repaso CSS</h2>
+        <section>
+          <h3><strong>C</strong>ascade <strong>S</strong>tyle <strong>S</strong>heets</h3>
+          <p class="fragment">Presentación</p>
+          <p class="fragment">Jerarquía (padre, hijo, ancestros, descendientes, hermanos)</p>
+          <p class="fragment">Selectores con peso (especificidad).</p>
+        </section>
+        <section>
+          <h3>Selectores</h3>
+          <p>Grupo 1</p>
+          <p>Identificador: <strong>#</strong></p>
+        </section>
+        <section>
+          <h3>Selectores</h3>
+          <p>Grupo 2</p>
+          <ul>
+            <li>Clase: <strong>.</strong></li>
+            <li>Atributos: <strong>[type="radio"]</strong></li>
+            <li>Pseudo clases: <strong>:hover</strong></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Selectores</h3>
+          <p>Grupo 3</p>
+          <ul>
+            <li>Etiqueta: <strong>p</strong></li>
+            <li>Pseudo elementos: <strong>::before</strong></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Peso</h3>
+          <ul>
+            <li class="fragment">Inline (en línea mediante el atributo style)</li>
+            <li class="fragment">Identificador</li>
+            <li class="fragment">Clase</li>
+            <li class="fragment">Etiqueta</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Combinación de selectores</h3>
+          <ul>
+            <li class="fragment">Múltiples elementos: <code class="alemadlei-code">.clase<strong>,</strong> #id<strong>,</strong> p</code></li>
+            <li class="fragment">Descendientes generales: <code class="alemadlei-code">p a, .elementos .titulo, #elemento .envoltorio-imagen img</code></li>
+            <li class="fragment">Hijo inmediato: <code class="alemadlei-code">a <strong>&gt;</strong> img, a <strong>&gt;</strong> img, header <strong>&gt;</strong> nav.menu <strong>&gt;</strong> ul <strong>&gt;</strong> li > a</code></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Combinación de selectores</h3>
+          <ul>
+            <li class="fragment">Hermanos: <code class="alemadlei-code">p <strong>~</strong> p, nav > ul > li <strong>~</strong> li</code></li>
+            <li class="fragment">Hermanos inmediatos: <code class="alemadlei-code">a[rel="nofollow"]:hover <strong>+</strong> p, li <strong>+</strong> li::after</code></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Un poco de humor</h3>
+          <img src="https://media.giphy.com/media/13XW2MJE0XCoM0/giphy.gif" alt="This is CSS!" />
+        </section>
+      </section>
+      <section>
+        <h2>Unos cuantos tips</h2>
+        <ul>
+          <li class="fragment">box-sizing: border-box;</li>
+          <li class="fragment">Usar cleafix cuando se trabaje con floats</li>
+          <li class="fragment">Mantenerse al tanto de técnicas nuevas</li>
+          <li class="fragment">Ordenar alfabéticamente las propiedades de CSS usadas</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Preguntas antes de proceder?</h2>
+      </section>
+      <section>
+        <h2>Expectactivas y deseos sobre la capacitación</h2>
+      </section>
+      <section>
+        <h2>Diagnóstico</h2>
+      </section>
+      <section>
+        <h2>Tareas</h2>
+        <section>
+          <h3>1/2) Investigar sobre <strong>BEM</strong> en lo referente a desarrollo web</h3>
+        </section>
+        <section>
+          <h3>2/2) Revisar el código web de esta presentación y contestar las siguientes preguntas</h3>
+          <ul>
+            <li>Qué biblioteca se esta usando para hacer la presentación?</li>
+            <li>Qué es el HTML5 shiv?</li>
+            <li>Por qué se usan los símbolos "&amp;lt;" y "&amp;gt;" </li>
+            <li>Cómo puedo usar otro tema? </li>
+            <li>Por qué se pierde el padding al cambiar el selector <code>code.alemadlei-code</code> a <code>.alemadlei-code</code>?</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2 class="thanks">Muchas Gracias!</h2>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/html5shiv.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+  <script>
+    Reveal.initialize();
+  </script>
+</body>
+</html>
