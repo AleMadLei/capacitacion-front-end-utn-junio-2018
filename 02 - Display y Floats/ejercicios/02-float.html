@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      font-style: italic;
+      font-size: 30px;
+      margin: 0;
+      text-align: center;
+    }
+    .header {
+      background: rgb(255, 0, 0);
+      height: 100px;
+      margin-bottom: 2px;
+      vertical-align: middle;
+    }
+
+    .content__side {
+      background: #FFF;
+      height: 200px;
+      float: left;
+      width: 250px;
+    }
+
+    .content__side-inner {
+      background: rgba(0, 0, 255, 1);
+      height: 200px;
+      margin-right: 2px;
+    }
+
+    .content__main {
+      background: rgb(255, 255, 0);
+      height: 200px;
+      margin: 0 0 2px;
+    }
+
+    .footer {
+      background: hsl(180, 100%, 50%);
+      height: 100px;
+    }
+
+  </style>
+</head>
+<body style="font-style: italic; font-size: 30px; text-align: center;">
+<header class="header">
+  Header
+</header>
+<main class="content clearfix">
+  <aside class="content__side">
+    <div class="content__side-inner">
+      Sidebar
+    </div>
+  </aside>
+  <article class="content__main">
+    Main Content
+  </article>
+</main>
+<footer class="footer">
+  Footer
+</footer>
+</body>
+</html>

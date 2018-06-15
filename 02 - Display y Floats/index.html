@@ -33,10 +33,10 @@
         <h3>Valores por defecto</h3>
           <p class="fragment">Existen otros <a href="https://www.w3schools.com/cssref/pr_class_display.asp" rel="nofollow">tipos de display</a>, cada uno con propiedades que ayudan a hacer cosas que antes eran más complicadas.</p>
           <ul class="fragment">
-            <li><strong>flex</strong> (div, p, section)</li>
-            <li><strong>grid</strong> (a, span, img)</li>
+            <li><strong>flex</strong></li>
+            <li><strong>grid</strong></li>
             <li><strong>list-item</strong> (li)</li>
-            <li><strong>table, table-row, table-cell</strong> (table, tr, th, td)</li>
+            <li><strong>table, table-row, table-cell</strong></li>
           </ul>
       </section>
       <section>
@@ -49,9 +49,18 @@
         </span>
       </section>
       <section>
+        <h3><code class="alemadlei-code-inline">display: inline</code></h3>
+        <span style="background: red; padding: 10px; margin: 10px;">
+          Soy un contenido con display inline. En este caso es el display por defecto.
+        </span>
+        <div style="display: inline; background: blue; padding: 10px; margin: 10px; height: 100px; width 1000px;">
+          Otro contenido que normalmente tiene display block pero con display inline. Al ser inline pierde cosas como width, height y paddings.
+        </div>
+      </section>
+      <section>
         <h3><code class="alemadlei-code-inline">display: block</code></h3>
         <div style="background: red; padding: 10px; margin: 10px;">
-          Soy un contenido con display blocl. En este caso es el display por defecto.
+          Soy un contenido con display block. En este caso es el display por defecto.
         </div>
         <span style="display: block; background: blue; padding: 10px; margin: 10px;">
           Otro contenido que normalmente tiene otro display inline pero con display block.
@@ -175,7 +184,7 @@
       <ul style="width: 100%" class="smaller-text">
         <li class="fragment">1 - Hacerlo con el tag table</li>
         <li class="fragment">2 - Hacerlo con float</li>
-        <li class="fragment">3 - Hacerlo con display table y asociados</li>
+        <li class="fragment">3 - Hacerlo con display table y asociados (table-row, table-cell)</li>
         <li class="fragment">4 - Hacerlo con display flex</li>
         <li class="fragment">5 - Hacerlo con display grid</li>
       </ul>
