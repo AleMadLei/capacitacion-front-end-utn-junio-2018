@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3 - Table</title>
+  <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css" />
+  <style>
+    .ccv {
+      vertical-align: middle;
+    }
+
+    .cch {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div style="display: grid; grid-template-columns: 200px auto; grid-template-rows: 100px auto 100px;">
+  <footer style="background: green; grid-column-start: 1; grid-column-end: 3; grid-row-start: 3;">
+    <h2>Footer</h2>
+  </footer>
+  <article style="background: aqua; grid-column-start: 2; grid-row-start: 2">
+    <h2>Main</h2>
+    <p>Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido </p>
+    <p>Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido </p>
+  </article>
+  <header style="background: red; grid-column-start: 1; grid-column-end: 3; grid-row-start: 1;">
+    <h2>Header</h2>
+  </header>
+  <aside style="background: blue; grid-column-start: 1; grid-row-start: 2;">
+    <h2>Side</h2>
+  </aside>
+</div>
+
+
+<header style="height: 100px; background: rgb(255,0,0);" class="cch">
+  <h2 style="margin: 0; padding: 2.5em 0;">Header</h2>
+</header>
+<main style="display: grid; grid-template-columns: 200px auto;">
+  <aside style="background: blue;">
+    <h2>Side</h2>
+  </aside>
+  <article style="background: aqua;">
+    <h2>Main</h2>
+    <p>Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido </p>
+    <p>Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido </p>
+  </article>
+</main>
+<footer style="background: green; height: 100px" class="cch">
+  <h2 style="margin: 0; padding: 2.5em 0;">Footer</h2>
+</footer>
+
+<div style="display: grid; grid-template-columns: 200px auto; grid-template-rows: 100px auto 100px; grid-template-areas: 'gHeader gHeader' 'gSide gMain' 'gFooter gFooter';">
+  <footer style="background: green; grid-area: gFooter">
+    <h2>Footer</h2>
+  </footer>
+  <article style="background: aqua; grid-area: gMain;">
+    <h2>Main</h2>
+    <p>Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido </p>
+    <p>Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido Contenido </p>
+  </article>
+  <header style="background: red; grid-area: gHeader">
+    <h2>Header</h2>
+  </header>
+  <aside style="background: blue; grid-area: gSide">
+    <h2>Side</h2>
+  </aside>
+</div>
+</body>
+</html>
