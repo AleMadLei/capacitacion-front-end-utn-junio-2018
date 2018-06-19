@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Capacitación de Desarrollo Front End para la UTN | Alejandro Madrigal Leiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/paper.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1>Capacitación de Desarrollo Front End para la UTN</h1>
+      <h2 class="fragment">BEM y Position</h2>
+      <p class="fragment"><a href="mailto:me@alemadlei.tech" target="_blank">Alejandro Madrigal Leiva</a></p>
+    </section>
+    <section>
+      <h2>BEM</h2>
+      <section>
+        <h3>Metodología</h3>
+        <p class="fragment"><strong>B</strong>lock <strong>E</strong>lement <strong>M</strong>odifier</p>
+        <ul style="font-size: 30px;">
+          <li class="fragment">Ordernar el CSS para que a largo plazo sea más mantenible.</li>
+          <li class="fragment">Reducir los errores a la hora de trabajar en equipos.</li>
+          <li class="fragment">Reducir los errores a la hora de agregar elementos nuevos.</li>
+          <li class="fragment">Facilitar la lectura del CSS e interpretar la posible estructura del HTML.</li>
+          <li class="fragment">Utilizar selectores de clase.</li>
+          <li class="fragment">Más información en el <a href="http://getbem.com/introduction/" target="_blank">sitio de BEM.</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3><strong>B</strong>lock</h3>
+        <ul style="font-size: 30px;">
+          <li class="fragment">El bloque.</li>
+          <li class="fragment">La base del nombre de clase a utilizar.</li>
+          <li class="fragment">A grandes rasgos es sinónimo de componente.</li>
+          <li class="fragment">Reutilizable.</li>
+          <li class="fragment">Componentes pueden ser parte de otros componentes.</li>
+          <li class="fragment"><code>.<strong>bloque</strong> { ... }</code></li>
+        </ul>
+      </section>
+      <section>
+        <h3><strong>B</strong>lock</h3>
+        <p><img src="http://getbem.com/assets/github_captions.jpg" style="height: 400px;" /></p>
+      </section>
+      <section>
+        <h3><strong>E</strong>lement</h3>
+        <ul style="font-size: 30px;">
+          <li class="fragment">El elemento.</li>
+          <li class="fragment">Siempre pertenece a un bloque y solo a ese bloque.</li>
+          <li class="fragment">Se identifica por el doble unserscore (<strong>__</strong>) entre el nombre del bloque y el nombre del elemento.</li>
+          <li class="fragment"><code>.bloque<strong>__elemento { ... }</strong></code></li>
+        </ul>
+      </section>
+      <section>
+        <h3><strong>E</strong>lement</h3>
+        <p><img src="http://getbem.com/assets/github_captions.jpg" style="height: 400px;" /></p>
+      </section>
+      <section>
+        <h3><strong>M</strong>odifier</h3>
+        <ul style="font-size: 30px;">
+          <li class="fragment">El modificador.</li>
+          <li class="fragment">Altera una visualización base de un bloque o un elemento.</li>
+          <li class="fragment">Pueden haber varios modificadores.</li>
+          <li class="fragment">Se identifica por el doble guion (<strong>--</strong>) que se agrega al final del nombre del bloque o el elemento.</li>
+          <li class="fragment"><code>.bloque<strong>--modificador</strong>, <br />.bloque__elemento<strong>--modificador</strong> { ... }</code></li>
+        </ul>
+      </section>
+      <section>
+        <h3><strong>M</strong>odifier</h3>
+        <p><img src="http://getbem.com/assets/github_buttons.jpg" /></p>
+      </section>
+    </section>
+    <section>
+      <h2>Position</h2>
+      <section>
+        <h3>Funcionalidad</h3>
+        <p>Indica la forma en que se van a posicionar los elementos a la hora de desplegarse en el documento.</p>
+        <ul class="fragment">
+          <li>static</li>
+          <li>relative</li>
+          <li>absolute</li>
+          <li>fixed</li>
+          <li>sticky</li>
+        </ul>
+      </section>
+      <section>
+        <h3>static</h3>
+        <ul>
+          <li class="fragment">Tipo de posicionamiento por defecto.</li>
+          <li class="fragment">Colocado en el flujo normal de la página</li>
+          <li class="fragment">No es afectado por otras propiedades de posicionamiento (left, right, top, bottom, z-index).</li>
+        </ul>
+        <div class="fragment" style="background: red; padding: 30px;">
+          <div style="background: gray">Esta es mi posición por defecto (static).</div>
+          <div style="background: blue;">Esta es mi posición por defecto (static).</div>
+          <div style="background: green;">Esta es mi posición por defecto (static).</div>
+        </div>
+      </section>
+      <section>
+        <h3>relative</h3>
+        <ul>
+          <li class="fragment">Es relativo a su posición por defecto (static).</li>
+          <li class="fragment">Se coloca en base a las otras propiedades de posicionamiento.</li>
+        </ul>
+        <div class="fragment" style="background: red; padding: 30px;">
+          <div style="background: gray; position: relative; left: 20px;">Tengo left 20px.</div>
+          <div style="background: blue; position: relative; right: 20px;">Tengo right 20px.</div>
+          <div style="background: green; position: relative; bottom: 20px;">Tengo bottom 20px.</div>
+        </div>
+      </section>
+      <section>
+        <h3>absolute</h3>
+        <ul>
+          <li class="fragment">Es absolute respecto al primer ancestro que este posicionado (que no sea static).</li>
+          <li class="fragment">En caso de no existir un ancestro posicionado, será con respecto al body.</li>
+        </ul>
+        <div class="fragment" style="background: red; padding: 30px;">
+          <div style="background: gray; position: absolute; top: -20px; left: -20px;">Tengo left -20px y top -20px.</div>
+          <div style="background: aqua; position: relative; height: 100px;">
+            <div style="background: blue; position: absolute; right: -20px;">Tengo right -20px.
+              <div style="background: green; position: absolute; bottom: 20px;">Tengo bottom 20px.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>fixed</h3>
+        <ul>
+          <li class="fragment">Es fijo con respecto a la pantalla.</li>
+          <li class="fragment">No se ve afectado por el scroll.</li>
+        </ul>
+        <div class="fragment" style="background: red; padding: 30px;">
+          <div style="background: gray; position: fixed; top: -20px; left: -20px;">Tengo left -20px y top -20px.</div>
+          <div style="background: aqua; position: fixed; height: 100px;">
+            <div style="background: blue; position: fixed; right: -20px;">Tengo right -20px.
+              <div style="background: green; position: fixed; bottom: 20px;">Tengo bottom 20px.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>sticky</h3>
+        <ul>
+          <li class="fragment">Es fijo con respecto al ancestro posicionado.</li>
+          <li class="fragment">Es relativamente nueva y no sirve en algunas versiones o requiere prefijos de proveedor.</li>
+        </ul>
+        <div class="fragment" style="background: red; padding: 30px;">
+          <div style="height: 200px; overflow: auto; position: relative;">
+            <div style="background: gray; position: sticky; left: -20px; top: 5px; z-index: 1">Tengo left -20px y top 5px.</div>
+            <div style="background: blue; position: sticky; top: 30px; right: 20px; z-index: 2">Tengo top 30px right 20px.</div>
+            <div style="background: green; position: sticky; right: 10px; bottom: 20px; z-index: 3">Tengo right 10px y bottom 20px.</div>
+            <p>Espacio</p>
+            <p>Espacio</p>
+            <p>Espacio</p>
+            <p>Espacio</p>
+            <p>Espacio</p>
+            <p>Espacio</p>
+            <p>Espacio</p>
+            <p>Espacio</p>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section>
+      <h2>Ejercicio</h2>
+      <style>
+        .button {
+          background: #02b3e4;
+          border-radius: 5px;
+          color: #FFF!important;
+          display: inline-block;
+          min-width: 200px;
+          padding: 10px!important;
+          text-align: center;
+        }
+        .c-hero {
+          background-size: cover;
+          height: 300px;
+          position: relative;
+          width: 100%;
+        }
+        .c-hero--glasses {
+          background-image: url(https://www.udacity.com/assets/iridium/images/new-home/hero-image.jpg);
+        }
+        .c-hero--game {
+          background-image: url(https://i.psnprofiles.com/games/7b85ad/LH95f2ee.jpg);
+        }
+        .c-hero__content {
+          color: #FFF;
+          font-size: 25px!important;
+          left: 20px;
+          margin: -100px 0 0!important;
+          position: absolute;
+          text-align: left;
+          top: 50%;
+          width: 50%;
+        }
+        .c-hero__title {
+          color: inherit!important;
+          font-size: 30px!important;
+        }
+        .c-hero--alternate-color .c-hero__content {
+          color: lightpink;
+        }
+        .c-hero__content--alternate {
+          color: lightblue;
+        }
+        .button--green {
+          background: green;
+        }
+        .c-hero__content--alternate .c-hero__button {
+          background: cyan;
+        }
+      </style>
+      <section>
+        <h3>Guía</h3>
+        <p>Montar el hero de <a href="https://www.udacity.com/" rel="nofollow" target="_blank">https://www.udacity.com/</a></p>
+        <p>Crear una segunda versión con una imagen distinta y colores de texto alterno y color de botón alterno.</p>
+        <p>Usar BEM.</p>
+      </section>
+      <section>
+        <h3>Solución primera parte</h3>
+        <div class="c-hero c-hero--glasses">
+          <div class="c-hero__content">
+            <h3 class="c-hero__title">Think Forward</h3>
+            <p class="c-hero__text">Build skills for today, tomorrow, and beyond. Welcome to future-facing education.</p>
+            <a class="button c-hero__button" href="#">View Catalog</a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Solución segunda parte (a)</h3>
+        <div class="c-hero c-hero--game c-hero--alternate-color">
+          <div class="c-hero__content">
+            <h3 class="c-hero__title">Think Forward</h3>
+            <p class="c-hero__text">Build skills for today, tomorrow, and beyond. Welcome to future-facing education.</p>
+            <a class="button c-hero__button button--green" href="#">View Catalog</a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Solución segunda parte (b)</h3>
+        <div class="c-hero c-hero--game">
+          <div class="c-hero__content c-hero__content--alternate">
+            <h3 class="c-hero__title">Think Forward</h3>
+            <p class="c-hero__text">Build skills for today, tomorrow, and beyond. Welcome to future-facing education.</p>
+            <a class="button c-hero__button" href="#">View Catalog</a>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section>
+      <h2>Tarea</h2>
+      <p>Montar un post de Facebook con BEM y estilos.</p>
+    </section>
+    <section>
+      <h2 class="thanks">Muchas Gracias!</h2>
+    </section>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/html5shiv.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+<script>
+  Reveal.initialize();
+</script>
+</body>
+</html>
