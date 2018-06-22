@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Post en Facebook | Clase #4</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" />
+  <style>
+    body {
+      background: #EEE;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .post {
+      background: white;
+      border: #999 1px solid;
+      border-radius: 5px;
+      min-height: 100px;
+    }
+
+    .post__header {
+      padding: 15px;
+    }
+
+    .user-image {
+      border: #999 1px solid;
+      border-radius: 50%;
+      display: inline-block;
+      height: 40px;
+      overflow: hidden;
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    .user-image__image {
+      height: auto;
+      width: 100%;
+    }
+
+    .user-name {
+      color: #365899;
+      font-weight: bold;
+    }
+
+    .post__meta {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .post__meta * {
+      vertical-align: middle;
+    }
+
+    .post__datetime {
+      color: #616770;
+      font-size: 12px;
+    }
+
+    .user-image + .post__meta {
+      margin-left: 5px;
+    }
+
+    .post__visibility {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/23tOS0eFLxu.png);
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+    }
+
+    .post__visibility--public {
+      background-position: 0 -98px;
+    }
+
+    .post__content {
+      padding: 0 15px;
+    }
+
+    .post__content p {
+      margin: 0 0 1em;
+    }
+
+    .post__image-wrapper {
+      display: block;
+      margin: 0 -15px;
+    }
+
+    .post__image {
+      display: block;
+      width: 100%;
+    }
+
+    .post__link-content {
+      background: #f2f3f5;
+      color: #606770;
+      display: block;
+      margin: 0 -15px;
+      padding: 15px;
+    }
+
+    .post__reference {
+      text-transform: uppercase;
+    }
+
+    .post__title {
+      color: #000;
+      font-size: 16px;
+      margin: 0.5em 0;
+    }
+
+    .post__actions {
+      display: table;
+      margin: 15px 0;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .post__action-wrapper {
+      display: table-cell;
+      text-align: center;
+      width: 30%;
+    }
+
+    .post__action-wrapper--impersonate {
+      width: 10%;
+    }
+
+    .post__action--impersonate {
+      height: 20px;
+      width: 20px;
+    }
+
+    .post__action {
+      color: #616770;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="post">
+        <div class="post__header">
+          <a href="#" class="user-image">
+            <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/419558_338342616208112_421026660_n.jpg?_nc_cat=0&_nc_eui2=AeEQdHfx3mWWRiH8hiwIEb1bU9zUKBPklkDhTcdZT12RB_goACv3ECMAd_Jvc5AzJe8FuuiXLaEo0d8k2iTscxpG3gvZiGEWfUCE78b-we5VOA&oh=59f98e407106ae7876694022c9a66ba3&oe=5BB06589" />
+          </a>
+          <div class="post__meta">
+            <a class="user-name" href="#">crhoy.com</a><br />
+            <a class="post__datetime" href="#">1 hr</a>
+            <span class="post__spacer"> · </span>
+            <span class="post__visibility post__visibility--public"></span>
+          </div>
+        </div>
+        <div class="post__content">
+          <div class="post__text">
+            <p>Deportes: El técnico brasileño confirmó al delantero en su formación</p>
+          </div>
+          <a href="#" class="post__image-wrapper">
+            <img class="post__image" src="https://external.fsyq2-1.fna.fbcdn.net/safe_image.php?d=AQAK_N8cDRaEE9vE&w=540&h=282&url=https%3A%2F%2Fcdn.crhoy.net%2Fimagenes%2F2018%2F06%2FbRASIL1.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_eui2=AeHWngeBcJ9BOYJ1Ze8BVYd7Wi4sX3CX0ZwxWygV-bayK2Vk5GrwhO6S4x6MEaOMeGioSVpwawdPrvaTUR0z1JMLTVxiHWOooc8UzsPEJMofXg&_nc_hash=AQDyxstMMuVR1aZn" />
+          </a>
+          <a href="#" class="post__link-content">
+            <span class="post__reference">CRHoy.com</span>
+            <h2 class="post__title">Brasil sufre baja de última hora y deberá cambiar su 11 estelar | Crhoy.com</h2>
+          </a>
+        </div>
+        <div class="post__actions">
+          <div class="post__action-wrapper post__action-wrapper--like">
+            <a href="#" class="post__action post__action--like">
+              <i class="far fa-thumbs-up"></i> Like
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--comment">
+            <a href="#" class="post__action post__action--comment">
+              <i class="far fa-comment"></i> Comment
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action--share">
+            <a href="#" class="post__action post__action--share">
+              <i class="far fa-share-square"></i> Share
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--impersonate">
+            <a href="#" class="user-image post__action post__action--impersonate">
+              <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-1/p32x32/35805502_10157450815944428_4887634437379981312_n.jpg?_nc_cat=0&_nc_eui2=AeFhSEV-2DQtnM4EQMocYfwAQAAsSz93RG6oR9wztzyesgt_JQqW5mI-1s99QEWL5YZy5N7odKjneHHiUSr4djbFB1-MHgUbeJ_ETDJQ56M4ZQ&oh=8f945ecf89c87723adaf150f2a1c56ff&oe=5BBB45FA" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="post">
+        <div class="post__header">
+          <a href="#" class="user-image">
+            <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/419558_338342616208112_421026660_n.jpg?_nc_cat=0&_nc_eui2=AeEQdHfx3mWWRiH8hiwIEb1bU9zUKBPklkDhTcdZT12RB_goACv3ECMAd_Jvc5AzJe8FuuiXLaEo0d8k2iTscxpG3gvZiGEWfUCE78b-we5VOA&oh=59f98e407106ae7876694022c9a66ba3&oe=5BB06589" />
+          </a>
+          <div class="post__meta">
+            <a class="user-name" href="#">crhoy.com</a><br />
+            <a class="post__datetime" href="#">1 hr</a>
+            <span class="post__spacer"> · </span>
+            <span class="post__visibility post__visibility--public"></span>
+          </div>
+        </div>
+        <div class="post__content">
+          <div class="post__text">
+            <p>Deportes: El técnico brasileño confirmó al delantero en su formación</p>
+          </div>
+          <a href="#" class="post__image-wrapper">
+            <img class="post__image" src="https://external.fsyq2-1.fna.fbcdn.net/safe_image.php?d=AQAK_N8cDRaEE9vE&w=540&h=282&url=https%3A%2F%2Fcdn.crhoy.net%2Fimagenes%2F2018%2F06%2FbRASIL1.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_eui2=AeHWngeBcJ9BOYJ1Ze8BVYd7Wi4sX3CX0ZwxWygV-bayK2Vk5GrwhO6S4x6MEaOMeGioSVpwawdPrvaTUR0z1JMLTVxiHWOooc8UzsPEJMofXg&_nc_hash=AQDyxstMMuVR1aZn" />
+          </a>
+          <a href="#" class="post__link-content">
+            <span class="post__reference">CRHoy.com</span>
+            <h2 class="post__title">Brasil sufre baja de última hora y deberá cambiar su 11 estelar | Crhoy.com</h2>
+          </a>
+        </div>
+        <div class="post__actions">
+          <div class="post__action-wrapper post__action-wrapper--like">
+            <a href="#" class="post__action post__action--like">
+              <i class="far fa-thumbs-up"></i> Like
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--comment">
+            <a href="#" class="post__action post__action--comment">
+              <i class="far fa-comment"></i> Comment
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action--share">
+            <a href="#" class="post__action post__action--share">
+              <i class="far fa-share-square"></i> Share
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--impersonate">
+            <a href="#" class="user-image post__action post__action--impersonate">
+              <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-1/p32x32/35805502_10157450815944428_4887634437379981312_n.jpg?_nc_cat=0&_nc_eui2=AeFhSEV-2DQtnM4EQMocYfwAQAAsSz93RG6oR9wztzyesgt_JQqW5mI-1s99QEWL5YZy5N7odKjneHHiUSr4djbFB1-MHgUbeJ_ETDJQ56M4ZQ&oh=8f945ecf89c87723adaf150f2a1c56ff&oe=5BBB45FA" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="post">
+        <div class="post__header">
+          <a href="#" class="user-image">
+            <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/419558_338342616208112_421026660_n.jpg?_nc_cat=0&_nc_eui2=AeEQdHfx3mWWRiH8hiwIEb1bU9zUKBPklkDhTcdZT12RB_goACv3ECMAd_Jvc5AzJe8FuuiXLaEo0d8k2iTscxpG3gvZiGEWfUCE78b-we5VOA&oh=59f98e407106ae7876694022c9a66ba3&oe=5BB06589" />
+          </a>
+          <div class="post__meta">
+            <a class="user-name" href="#">crhoy.com</a><br />
+            <a class="post__datetime" href="#">1 hr</a>
+            <span class="post__spacer"> · </span>
+            <span class="post__visibility post__visibility--public"></span>
+          </div>
+        </div>
+        <div class="post__content">
+          <div class="post__text">
+            <p>Deportes: El técnico brasileño confirmó al delantero en su formación</p>
+          </div>
+          <a href="#" class="post__image-wrapper">
+            <img class="post__image" src="https://external.fsyq2-1.fna.fbcdn.net/safe_image.php?d=AQAK_N8cDRaEE9vE&w=540&h=282&url=https%3A%2F%2Fcdn.crhoy.net%2Fimagenes%2F2018%2F06%2FbRASIL1.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_eui2=AeHWngeBcJ9BOYJ1Ze8BVYd7Wi4sX3CX0ZwxWygV-bayK2Vk5GrwhO6S4x6MEaOMeGioSVpwawdPrvaTUR0z1JMLTVxiHWOooc8UzsPEJMofXg&_nc_hash=AQDyxstMMuVR1aZn" />
+          </a>
+          <a href="#" class="post__link-content">
+            <span class="post__reference">CRHoy.com</span>
+            <h2 class="post__title">Brasil sufre baja de última hora y deberá cambiar su 11 estelar | Crhoy.com</h2>
+          </a>
+        </div>
+        <div class="post__actions">
+          <div class="post__action-wrapper post__action-wrapper--like">
+            <a href="#" class="post__action post__action--like">
+              <i class="far fa-thumbs-up"></i> Like
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--comment">
+            <a href="#" class="post__action post__action--comment">
+              <i class="far fa-comment"></i> Comment
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action--share">
+            <a href="#" class="post__action post__action--share">
+              <i class="far fa-share-square"></i> Share
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--impersonate">
+            <a href="#" class="user-image post__action post__action--impersonate">
+              <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-1/p32x32/35805502_10157450815944428_4887634437379981312_n.jpg?_nc_cat=0&_nc_eui2=AeFhSEV-2DQtnM4EQMocYfwAQAAsSz93RG6oR9wztzyesgt_JQqW5mI-1s99QEWL5YZy5N7odKjneHHiUSr4djbFB1-MHgUbeJ_ETDJQ56M4ZQ&oh=8f945ecf89c87723adaf150f2a1c56ff&oe=5BBB45FA" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="post">
+        <div class="post__header">
+          <a href="#" class="user-image">
+            <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/419558_338342616208112_421026660_n.jpg?_nc_cat=0&_nc_eui2=AeEQdHfx3mWWRiH8hiwIEb1bU9zUKBPklkDhTcdZT12RB_goACv3ECMAd_Jvc5AzJe8FuuiXLaEo0d8k2iTscxpG3gvZiGEWfUCE78b-we5VOA&oh=59f98e407106ae7876694022c9a66ba3&oe=5BB06589" />
+          </a>
+          <div class="post__meta">
+            <a class="user-name" href="#">crhoy.com</a><br />
+            <a class="post__datetime" href="#">1 hr</a>
+            <span class="post__spacer"> · </span>
+            <span class="post__visibility post__visibility--public"></span>
+          </div>
+        </div>
+        <div class="post__content">
+          <div class="post__text">
+            <p>Deportes: El técnico brasileño confirmó al delantero en su formación</p>
+          </div>
+          <a href="#" class="post__image-wrapper">
+            <img class="post__image" src="https://external.fsyq2-1.fna.fbcdn.net/safe_image.php?d=AQAK_N8cDRaEE9vE&w=540&h=282&url=https%3A%2F%2Fcdn.crhoy.net%2Fimagenes%2F2018%2F06%2FbRASIL1.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_eui2=AeHWngeBcJ9BOYJ1Ze8BVYd7Wi4sX3CX0ZwxWygV-bayK2Vk5GrwhO6S4x6MEaOMeGioSVpwawdPrvaTUR0z1JMLTVxiHWOooc8UzsPEJMofXg&_nc_hash=AQDyxstMMuVR1aZn" />
+          </a>
+          <a href="#" class="post__link-content">
+            <span class="post__reference">CRHoy.com</span>
+            <h2 class="post__title">Brasil sufre baja de última hora y deberá cambiar su 11 estelar | Crhoy.com</h2>
+          </a>
+        </div>
+        <div class="post__actions">
+          <div class="post__action-wrapper post__action-wrapper--like">
+            <a href="#" class="post__action post__action--like">
+              <i class="far fa-thumbs-up"></i> Like
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--comment">
+            <a href="#" class="post__action post__action--comment">
+              <i class="far fa-comment"></i> Comment
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action--share">
+            <a href="#" class="post__action post__action--share">
+              <i class="far fa-share-square"></i> Share
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--impersonate">
+            <a href="#" class="user-image post__action post__action--impersonate">
+              <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-1/p32x32/35805502_10157450815944428_4887634437379981312_n.jpg?_nc_cat=0&_nc_eui2=AeFhSEV-2DQtnM4EQMocYfwAQAAsSz93RG6oR9wztzyesgt_JQqW5mI-1s99QEWL5YZy5N7odKjneHHiUSr4djbFB1-MHgUbeJ_ETDJQ56M4ZQ&oh=8f945ecf89c87723adaf150f2a1c56ff&oe=5BBB45FA" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="post">
+        <div class="post__header">
+          <a href="#" class="user-image">
+            <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/419558_338342616208112_421026660_n.jpg?_nc_cat=0&_nc_eui2=AeEQdHfx3mWWRiH8hiwIEb1bU9zUKBPklkDhTcdZT12RB_goACv3ECMAd_Jvc5AzJe8FuuiXLaEo0d8k2iTscxpG3gvZiGEWfUCE78b-we5VOA&oh=59f98e407106ae7876694022c9a66ba3&oe=5BB06589" />
+          </a>
+          <div class="post__meta">
+            <a class="user-name" href="#">crhoy.com</a><br />
+            <a class="post__datetime" href="#">1 hr</a>
+            <span class="post__spacer"> · </span>
+            <span class="post__visibility post__visibility--public"></span>
+          </div>
+        </div>
+        <div class="post__content">
+          <div class="post__text">
+            <p>Deportes: El técnico brasileño confirmó al delantero en su formación</p>
+          </div>
+          <a href="#" class="post__image-wrapper">
+            <img class="post__image" src="https://external.fsyq2-1.fna.fbcdn.net/safe_image.php?d=AQAK_N8cDRaEE9vE&w=540&h=282&url=https%3A%2F%2Fcdn.crhoy.net%2Fimagenes%2F2018%2F06%2FbRASIL1.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_eui2=AeHWngeBcJ9BOYJ1Ze8BVYd7Wi4sX3CX0ZwxWygV-bayK2Vk5GrwhO6S4x6MEaOMeGioSVpwawdPrvaTUR0z1JMLTVxiHWOooc8UzsPEJMofXg&_nc_hash=AQDyxstMMuVR1aZn" />
+          </a>
+          <a href="#" class="post__link-content">
+            <span class="post__reference">CRHoy.com</span>
+            <h2 class="post__title">Brasil sufre baja de última hora y deberá cambiar su 11 estelar | Crhoy.com</h2>
+          </a>
+        </div>
+        <div class="post__actions">
+          <div class="post__action-wrapper post__action-wrapper--like">
+            <a href="#" class="post__action post__action--like">
+              <i class="far fa-thumbs-up"></i> Like
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--comment">
+            <a href="#" class="post__action post__action--comment">
+              <i class="far fa-comment"></i> Comment
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action--share">
+            <a href="#" class="post__action post__action--share">
+              <i class="far fa-share-square"></i> Share
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--impersonate">
+            <a href="#" class="user-image post__action post__action--impersonate">
+              <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-1/p32x32/35805502_10157450815944428_4887634437379981312_n.jpg?_nc_cat=0&_nc_eui2=AeFhSEV-2DQtnM4EQMocYfwAQAAsSz93RG6oR9wztzyesgt_JQqW5mI-1s99QEWL5YZy5N7odKjneHHiUSr4djbFB1-MHgUbeJ_ETDJQ56M4ZQ&oh=8f945ecf89c87723adaf150f2a1c56ff&oe=5BBB45FA" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="post">
+        <div class="post__header">
+          <a href="#" class="user-image">
+            <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/419558_338342616208112_421026660_n.jpg?_nc_cat=0&_nc_eui2=AeEQdHfx3mWWRiH8hiwIEb1bU9zUKBPklkDhTcdZT12RB_goACv3ECMAd_Jvc5AzJe8FuuiXLaEo0d8k2iTscxpG3gvZiGEWfUCE78b-we5VOA&oh=59f98e407106ae7876694022c9a66ba3&oe=5BB06589" />
+          </a>
+          <div class="post__meta">
+            <a class="user-name" href="#">crhoy.com</a><br />
+            <a class="post__datetime" href="#">1 hr</a>
+            <span class="post__spacer"> · </span>
+            <span class="post__visibility post__visibility--public"></span>
+          </div>
+        </div>
+        <div class="post__content">
+          <div class="post__text">
+            <p>Deportes: El técnico brasileño confirmó al delantero en su formación</p>
+          </div>
+          <a href="#" class="post__image-wrapper">
+            <img class="post__image" src="https://external.fsyq2-1.fna.fbcdn.net/safe_image.php?d=AQAK_N8cDRaEE9vE&w=540&h=282&url=https%3A%2F%2Fcdn.crhoy.net%2Fimagenes%2F2018%2F06%2FbRASIL1.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_eui2=AeHWngeBcJ9BOYJ1Ze8BVYd7Wi4sX3CX0ZwxWygV-bayK2Vk5GrwhO6S4x6MEaOMeGioSVpwawdPrvaTUR0z1JMLTVxiHWOooc8UzsPEJMofXg&_nc_hash=AQDyxstMMuVR1aZn" />
+          </a>
+          <a href="#" class="post__link-content">
+            <span class="post__reference">CRHoy.com</span>
+            <h2 class="post__title">Brasil sufre baja de última hora y deberá cambiar su 11 estelar | Crhoy.com</h2>
+          </a>
+        </div>
+        <div class="post__actions">
+          <div class="post__action-wrapper post__action-wrapper--like">
+            <a href="#" class="post__action post__action--like">
+              <i class="far fa-thumbs-up"></i> Like
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--comment">
+            <a href="#" class="post__action post__action--comment">
+              <i class="far fa-comment"></i> Comment
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action--share">
+            <a href="#" class="post__action post__action--share">
+              <i class="far fa-share-square"></i> Share
+            </a>
+          </div>
+          <div class="post__action-wrapper post__action-wrapper--impersonate">
+            <a href="#" class="user-image post__action post__action--impersonate">
+              <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-1/p32x32/35805502_10157450815944428_4887634437379981312_n.jpg?_nc_cat=0&_nc_eui2=AeFhSEV-2DQtnM4EQMocYfwAQAAsSz93RG6oR9wztzyesgt_JQqW5mI-1s99QEWL5YZy5N7odKjneHHiUSr4djbFB1-MHgUbeJ_ETDJQ56M4ZQ&oh=8f945ecf89c87723adaf150f2a1c56ff&oe=5BBB45FA" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post__header">
+    <a href="#" class="user-image">
+      <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/419558_338342616208112_421026660_n.jpg?_nc_cat=0&_nc_eui2=AeEQdHfx3mWWRiH8hiwIEb1bU9zUKBPklkDhTcdZT12RB_goACv3ECMAd_Jvc5AzJe8FuuiXLaEo0d8k2iTscxpG3gvZiGEWfUCE78b-we5VOA&oh=59f98e407106ae7876694022c9a66ba3&oe=5BB06589" />
+    </a>
+    <div class="post__meta">
+      <a class="user-name" href="#">crhoy.com</a><br />
+      <a class="post__datetime" href="#">1 hr</a>
+      <span class="post__spacer"> · </span>
+      <span class="post__visibility post__visibility--public"></span>
+    </div>
+  </div>
+  <div class="post__content">
+    <div class="post__text">
+      <p>Deportes: El técnico brasileño confirmó al delantero en su formación</p>
+    </div>
+    <a href="#" class="post__image-wrapper">
+      <img class="post__image" src="https://external.fsyq2-1.fna.fbcdn.net/safe_image.php?d=AQAK_N8cDRaEE9vE&w=540&h=282&url=https%3A%2F%2Fcdn.crhoy.net%2Fimagenes%2F2018%2F06%2FbRASIL1.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_eui2=AeHWngeBcJ9BOYJ1Ze8BVYd7Wi4sX3CX0ZwxWygV-bayK2Vk5GrwhO6S4x6MEaOMeGioSVpwawdPrvaTUR0z1JMLTVxiHWOooc8UzsPEJMofXg&_nc_hash=AQDyxstMMuVR1aZn" />
+    </a>
+    <a href="#" class="post__link-content">
+      <span class="post__reference">CRHoy.com</span>
+      <h2 class="post__title">Brasil sufre baja de última hora y deberá cambiar su 11 estelar | Crhoy.com</h2>
+    </a>
+  </div>
+  <div class="post__actions">
+    <div class="post__action-wrapper post__action-wrapper--like">
+      <a href="#" class="post__action post__action--like">
+        <i class="far fa-thumbs-up"></i> Like
+      </a>
+    </div>
+    <div class="post__action-wrapper post__action-wrapper--comment">
+      <a href="#" class="post__action post__action--comment">
+        <i class="far fa-comment"></i> Comment
+      </a>
+    </div>
+    <div class="post__action-wrapper post__action--share">
+      <a href="#" class="post__action post__action--share">
+        <i class="far fa-share-square"></i> Share
+      </a>
+    </div>
+    <div class="post__action-wrapper post__action-wrapper--impersonate">
+      <a href="#" class="user-image post__action post__action--impersonate">
+        <img class="user-image__image" src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-1/p32x32/35805502_10157450815944428_4887634437379981312_n.jpg?_nc_cat=0&_nc_eui2=AeFhSEV-2DQtnM4EQMocYfwAQAAsSz93RG6oR9wztzyesgt_JQqW5mI-1s99QEWL5YZy5N7odKjneHHiUSr4djbFB1-MHgUbeJ_ETDJQ56M4ZQ&oh=8f945ecf89c87723adaf150f2a1c56ff&oe=5BBB45FA" />
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
