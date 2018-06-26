@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Capacitación de Desarrollo Front End para la UTN | Alejandro Madrigal Leiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/paper.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Capacitación de Desarrollo Front End para la UTN</h1>
+        <h2 class="fragment">Introducción y Diagnóstico</h2>
+        <p class="fragment"><a href="mailto:me@alemadlei.tech" target="_blank">Alejandro Madrigal Leiva</a></p>
+      </section>
+      <section>
+        <h2>Introducción a Javascript</h2>
+        <section>
+          <h3>Propósito</h3>
+          <p class="fragment">Agregar interactividad a una página web.</p>
+          <ul>
+            <li class="fragment">Animaciones</li>
+            <li class="fragment">Mostrar nueva información</li>
+            <li class="fragment">AJAX</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Ejemplo</h3>
+          <p>
+            <a href="#" onclick="alert('Me hiciste click'); return false;">Haz click</a>
+          </p>
+          <p>
+            <a href="#" id="ejemplo-click-1">Haz click</a>
+          </p>
+          <script type="text/javascript">
+            document.getElementById('ejemplo-click-1').addEventListener('click', function(e) {
+              if (this.parentElement.previousSibling.previousSibling.style.display != 'none') {
+                this.parentElement.previousSibling.previousSibling.style.display = 'none';
+              }
+              else {
+                this.parentElement.previousSibling.previousSibling.style.display = '';
+              }
+              e.preventDefault();
+              e.stopPropagation();
+            });
+          </script>
+        </section>
+        <section>
+          <h3>Ejemplo</h3>
+          <code class="alemadlei-code">
+
+            &lt;script&gt;
+            <strong>var</strong> x = 25;
+            alert('El valor es: ' + x);
+            &lt;/script&gt;
+
+          </code>
+        </section>
+        <section>
+          <h3>Notas generales</h3>
+          <ul>
+            <li class="fragment"><strong>NO ES JAVA!!!</strong></li>
+            <li class="fragment"><strong>HTML + CSS != programar, pero JS == programar.</strong></li>
+            <li class="fragment">Lenguage de programación</li>
+            <li class="fragment">Funcionalidad basada en eventos</li>
+            <li class="fragment">Actualmente se guía bajo la especificación ECMAScript</li>
+            <li class="fragment">Lenguage para hablar de cosas relacionadas al lenguaje (dom, closure, promise, loop)</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Recomendaciones</h3>
+          <ul>
+            <li class="fragment">Es bueno tener bases fuertes en el lenguaje para usar otras tecnologías (Angular, React, jQuery, NodeJS, etc).</li>
+            <li class="fragment">Tomar en cuenta que puede haber discrepancias entre navegadores.</li>
+            <li class="fragment">Incluir los scripts al final del HTML (especialmente si se realizan modificaciones a estilos).</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Otro material de estudio</h3>
+          <ul>
+            <li><a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank" rel="nofollow">Curso en Codecademy</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="nofollow">Documentación Mozilla</a></li>
+            <li><a href="https://www.w3schools.com/jsref/default.asp" target="_blank" rel="nofollow">Documentación w3schools</a></li>
+            <li><a href="https://www.uv.es/mplac/LaNau/4_Javascript/Ejercicios.htm" target="_blank" rel="nofollow">Ejercicios</a></li>
+            <li><a href="https://github.com/DesafioLatam/guia-de-ejercicios-javascript/blob/master/ejercicios.md" target="_blank" rel="nofollow">Ejercicios</a></li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>Introducción a jQuery</h2>
+        <section>
+          <h3>Propósito</h3>
+          <p class="fragment">Facilitar la escritura de Javascript en la página web.</p>
+          <p class="fragment"><strong>Escribir menos y hacer más.</strong></p>
+        </section>
+        <section>
+          <h3>Ejemplo</h3>
+          <p>
+            <a class="binded" href="#">Haz click</a>
+          </p>
+          <p>
+            <a href="#" id="ejemplo-click-jQuery">Haz click</a>
+          </p>
+          <script>
+            $('#ejemplo-click-jQuery').click(function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              $(this).parent().prev().toggle();
+            });
+
+            $(document).on('click', '.binded', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              alert('Usando document on');
+            });
+          </script>
+        </section>
+        <section>
+          <h3>Notas generales</h3>
+          <ul>
+            <li class="fragment">Sigue siendo Javascript.</li>
+            <li class="fragment">Facilita la lectura de código.</li>
+            <li class="fragment">Facilita incluir el código en el head.</li>
+            <li class="fragment">Gran cantidad de widgets o bibliotecas.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Otro material de estudio</h3>
+          <ul>
+            <li><a href="https://jquery.com/" target="_blank" rel="nofollow">Homepage de jQuery</a></li>
+            <li><a href="https://www.w3schools.com/Jquery/default.asp" target="_blank" rel="nofollow">Documentación w3schools</a></li>
+            <li><a href="https://github.com/kajetan-mazur/jQuery-exercises" target="_blank" rel="nofollow">Ejercicios</a></li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>Ejercicio</h2>
+        <p>Realizar la animación de un cuadro que se mueve de un lado al otro de la pantalla.</p>
+      </section>
+      <section>
+        <h2 class="thanks">Muchas Gracias!</h2>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/html5shiv.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+  <script>
+    Reveal.initialize();
+  </script>
+</body>
+</html>
