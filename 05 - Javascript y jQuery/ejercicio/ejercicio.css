@@ -1,0 +1,42 @@
+.cuadro {
+  height: 40px;
+  position: absolute;
+  width: 40px;
+}
+
+.cuadro--1 {
+  background: red;
+  top: 0;
+}
+
+.cuadro--2 {
+  background: blue;
+  top: 25%;
+}
+
+.cuadro--3 {
+  background: green;
+  top: 50%;
+}
+
+.circulo {
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+}
+
+.circulo--1 {
+  background: black;
+  top: 60%;
+}
+
+.circulo--2 {
+  background: aquamarine;
+  top: 70%;
+}
+
+.circulo--3 {
+  background: orange;
+  top: 80%;
+}
