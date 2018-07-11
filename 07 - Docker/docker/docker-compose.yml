@@ -1,0 +1,105 @@
+version: "2"
+
+services:
+  mariadbd7:
+    image: wodby/mariadb:10.1-3.2.2
+    container_name: "clase_7_mariadbd7"
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: d7
+      MYSQL_USER: d7
+      MYSQL_PASSWORD: d7
+    volumes:
+      - ./data/d7:/var/lib/mysql # I want to manage volumes manually.
+
+  mariadbd8:
+    image: wodby/mariadb:10.1-3.2.2
+    container_name: "clase_7_mariadbd8"
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: d8
+      MYSQL_USER: d8
+      MYSQL_PASSWORD: d8
+    volumes:
+      - ./data/d8:/var/lib/mysql # I want to manage volumes manually.
+
+  phpd7:
+    image: wodby/drupal-php:5.6-dev-4.5.2
+    container_name: "clase_7_phpd7"
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      DB_HOST: clase_7_mariadbd7
+      DB_USER: d7
+      DB_PASSWORD: d7
+      DB_NAME: d7
+      DB_DRIVER: mysql
+    volumes:
+      - ./codigo/d7:/var/www/html
+
+
+  phpd8:
+    image: wodby/drupal-php:7.2-dev-4.5.2
+    container_name: "clase_7_phpd8"
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      DB_HOST: clase_7_mariadbd8
+      DB_USER: d8
+      DB_PASSWORD: d8
+      DB_NAME: d8
+      DB_DRIVER: mysql
+    volumes:
+      - ./codigo/d8:/var/www/html
+
+  nginxd7:
+    image: wodby/drupal-nginx:7-1.15-4.2.0
+    container_name: "clase_7_nginxd7"
+    depends_on:
+      - phpd7
+    environment:
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
+      NGINX_BACKEND_HOST: phpd7
+      NGINX_SERVER_ROOT: /var/www/html
+    volumes:
+      - ./codigo/d7:/var/www/html
+    labels:
+      - 'traefik.backend=nginxd7'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:nginxd7.drupal.docker.localhost'
+
+  nginxd8:
+    image: wodby/drupal-nginx:8-1.15-4.2.0
+    container_name: "clase_7_nginxd8"
+    depends_on:
+      - phpd8
+    environment:
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
+      NGINX_BACKEND_HOST: phpd8
+      NGINX_SERVER_ROOT: /var/www/html
+    volumes:
+      - ./codigo/d8:/var/www/html
+    labels:
+      - 'traefik.backend=nginxd8'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:nginxd8.drupal.docker.localhost'
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: "clase_7_mailhog"
+    labels:
+      - 'traefik.backend=mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.drupal.docker.localhost'
+
+  traefik:
+    image: traefik
+    container_name: "clase_7_traefik"
+    command: -c /dev/null --web --docker --logLevel=INFO
+    ports:
+      - '8090:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
