@@ -13,6 +13,7 @@ code.alemadlei-code {
   display: block;
   font-size: 0.85em;
   padding: 10px;
+  text-align: left;
 }
 
 code.alemadlei-code-inline {

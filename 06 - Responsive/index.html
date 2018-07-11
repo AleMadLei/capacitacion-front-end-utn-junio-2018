@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Capacitación de Desarrollo Front End para la UTN | Alejandro Madrigal Leiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/paper.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1>Capacitación de Desarrollo Front End para la UTN</h1>
+      <h2 class="fragment">Responsive</h2>
+      <p class="fragment"><a href="mailto:me@alemadlei.tech" target="_blank">Alejandro Madrigal Leiva</a></p>
+    </section>
+    <section>
+      <h2>Responsive</h2>
+      <section>
+        <h3>Qué es?</h3>
+        <p class="fragment">Diseño que adapta su contenido dependiendo de las características del dispositivo con el cual se este visualizando.</p>
+        <p class="fragment"><img src="https://media0.giphy.com/media/EeKAJaMxmVLwc/giphy.gif" align="Responsive" width="325" /></p>
+      </section>
+      <section>
+        <h3>Cómo se hace?</h3>
+        <ul>
+          <li class="fragment">En un mundo perfecto, <strong>es parte del diseño original</strong>.</li>
+          <li class="fragment">En un mundo perfecto, <strong>mobile first</strong>.</li>
+          <li class="fragment">Se escribe el HTML, se define el CSS base.</li>
+          <li class="fragment"><strong>Media Queries</strong></li>
+          <li class="fragment">Son parte del CSS</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Código</h3>
+        <p class="fragment">Traducción muy descriptiva </p>
+        <code class="alemadlei-code fragment">
+          @media <strong>Condiciones de Activación</strong> {
+          &nbsp;&nbsp;<strong>SelectorDeCSS</strong> { <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;propiedad: valor; <br />
+          &nbsp;&nbsp;}<br />
+          }
+        </code>
+      </section>
+      <section>
+        <h3>Ejemplos de Media Query</h3>
+        <code id="alemadlei-code-1" class="alemadlei-code fragment">
+          @media <strong>print</strong> { <br />
+          &nbsp;&nbsp;<strong>#alemadlei-code-1</strong> { <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;text-transform: uppercase; <br />
+          &nbsp;&nbsp;}<br />
+          }
+        </code>
+        <style>
+          @media print {
+            #alemadlei-code-1 {
+              text-transform: uppercase!important;
+            }
+          }
+        </style>
+      </section>
+      <section>
+        <h3>Ejemplos de Media Query</h3>
+        <code id="alemadlei-code-2" class="alemadlei-code fragment">
+          @media <strong>screen and (min-width: 700px)</strong> { <br />
+          &nbsp;&nbsp;<strong>#alemadlei-code-2</strong> { <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;color: red; <br />
+          &nbsp;&nbsp;}<br />
+          }
+        </code>
+        <style>
+          @media screen and (min-width: 700px) {
+            #alemadlei-code-2 {
+              color: red;
+            }
+          }
+        </style>
+      </section>
+      <section>
+        <h3>Ejemplos de Media Query</h3>
+        <code id="alemadlei-code-3" class="alemadlei-code fragment">
+          @media <strong>screen and (max-width: 960px)</strong> { <br />
+          &nbsp;&nbsp;<strong>#alemadlei-code-3</strong> { <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;background: yellow; <br />
+          &nbsp;&nbsp;}<br />
+          }
+        </code>
+        <style>
+          @media screen and (max-width: 960px) {
+            #alemadlei-code-3 {
+              background: yellow;
+            }
+          }
+        </style>
+      </section>
+      <section>
+        <h3>Ejemplos de Media Query</h3>
+        <code id="alemadlei-code-4" class="alemadlei-code fragment">
+          @media <strong>screen and and (min-width: 780px) and (max-width: 810px) and (min-height: 400px) and (max-height: 450px)</strong> { <br />
+          &nbsp;&nbsp;<strong>#alemadlei-code-4</strong> { <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;background: yellow; <br />
+          &nbsp;&nbsp;}<br />
+          }
+        </code>
+        <style>
+          @media screen and (min-width: 780px) and (max-width: 810px) and (min-height: 400px) and (max-height: 450px) {
+            #alemadlei-code-4 {
+              background: red;
+              color: blue;
+            }
+          }
+        </style>
+      </section>
+    </section>
+    <section>
+      <h2>Notas</h2>
+      <ul>
+        <li class="fragment">No deberían ser muy complicados.</li>
+        <li class="fragment">Lo ideal es trabajar de menos a más (de mobile a desktop).</li>
+        <li class="fragment">En resoluciones menores, lo usual es "apilar" elementos.</li>
+        <li class="fragment">Considerar casos particulares (iPhone y iPad con los hover).</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Ejercicio</h2>
+      <div>
+        Hacer:
+        <ul>
+          <li><a href="https://www.teaching-materials.org/csstools/exercises/exercise_media_descrip" target="_blank" rel="nofollow">Esta página</a></li>
+          <li><a href="http://web.simmons.edu/~grovesd/comm328/demo/media-query-exercises/media-query-example1.html" target="_blank" rel="nofollow">Que esto se vea "bonito"</a></li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <h2 class="thanks">Muchas Gracias!</h2>
+    </section>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/html5shiv.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+<script>
+  Reveal.initialize();
+</script>
+</body>
+</html>
