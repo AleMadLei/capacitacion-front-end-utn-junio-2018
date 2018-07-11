@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Capacitación de Desarrollo Front End para la UTN | Alejandro Madrigal Leiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/paper.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Capacitación de Desarrollo Front End para la UTN</h1>
+        <h2 class="fragment">Docker</h2>
+        <p class="fragment"><a href="mailto:me@alemadlei.tech" target="_blank">Alejandro Madrigal Leiva</a></p>
+      </section>
+      <section>
+        <h2>Docker?</h2>
+        <section>
+          <h3>Problemas durante desarrollo</h3>
+          <ul>
+            <li class="fragment">En un mismo equipo, diferencias entre los ambientes de desarrollo (Windows, Linux, Mac).</li>
+            <li class="fragment">Para el mismo ambiente, variaciones entre las bibliotecas utilizadas.</li>
+            <li class="fragment">Diferencias entre los ambientes finales (dev, stage, prod).</li>
+            <li class="fragment">Dificultad para montar un ambiente completo para personas no técnicas y técnicas.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Posibles soluciones</h3>
+          <ul>
+            <li class="fragment">Trabajar directamente en el servidor.</li>
+            <li class="fragment">Estándarizar el equipo de trabajo para que los ambientes sean iguales al del servidor.</li>
+            <li class="fragment">Máquinas Virtuales.</li>
+            <li class="fragment">Docker.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Qué es?</h2>
+          <ul>
+            <li class="fragment">Una plataforma de <strong>contenedores</strong> que permite solucionar un problema.</li>
+            <li class="fragment">Un contenedor es un paquete ligero y ejecutable de software que incluye todo lo necesario para realizar una tarea.</li>
+            <li class="fragment">Una <strong>analogía</strong> es como una máquina virtual muy ligera.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Esquema</h2>
+          <div class="fragment">
+            <img src="https://www.docker.com/sites/default/files/Package%20software%40x2.png" style="max-height: 400px;"/>
+          </div>
+        </section>
+        <section>
+          <h2>Instalación</h2>
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=HhpTsIcNAXo" target="_blank" rel="nofollow">Windows</a></li>
+            <li><a href="https://www.youtube.com/watch?v=lNkVxDSRo7M" target="_blank" rel="nofollow">OSX</a></li>
+            <li><a href="https://www.youtube.com/watch?v=sAJVn2urNhE" target="_blank" rel="nofollow">Ubuntu</a></li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>Docker Compose</h2>
+        <section>
+          <h3>Problema</h3>
+          <div class="fragment">
+            Aún así puede ser complicado inicializar un contenedor debido a los comandos desde terminal
+          </div>
+          <code class="fragment alemadlei-code">
+            <strong>docker</strong> <em>run</em> -d --name  container-name -p localhost:80:80 -v $HOME/myContainer/configDir:/myImage/configDir --restart=always image-name
+          </code>
+          <div class="fragment">
+            La complicación aumenta de acuerdo al número de contenedores que yo necesite ejecutar.
+          </div>
+        </section>
+        <section>
+          <h3>Qué es?</h3>
+          <ul>
+            <li class="fragment">Una herramienta que permite orquestrar contenedores a través de un archivo de configuración.</li>
+            <li class="fragment">Reduce la cantidad de comandos que un usuario debe aprender.</li>
+            <li class="fragment">Permite mantener versionada la configuración del sistema.</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>Ejemplo</h2>
+        <p>docker-compose.yml</p>
+        <p>Tomado desde <a href="https://github.com/wodby/docker4drupal" target="_blank" rel="nofollow">Docker 4 Drupal</a> y modificados para trabajo local.</p>
+      </section>
+      <section>
+        <h2 class="thanks">Muchas Gracias!</h2>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/html5shiv.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+  <script>
+    Reveal.initialize();
+  </script>
+</body>
+</html>
